@@ -1,52 +1,60 @@
 import streamlit as st
 
-st.title("Anish karthic's Portfolio")
-st.write("Hi, I am Anish Karthic department of ARTFICIAL INTELLIGENCE AND DATA SCIENCE ")
-c1,c2,c3=st.columns([1,2,1])
+st.markdown("""
+    <style>
+        .main-title {color: #4CAF50; font-size: 50px; text-align: center; font-weight: bold;}
+        .section-header {color: #0056b3; font-size: 26px; font-weight: bold; margin-top: 20px;}
+        .subsection-header {color: #444; font-size: 20px; font-weight: bold;}
+        .info {font-size: 16px; line-height: 1.6;}
+        .contact-links a {text-decoration: none; color: #4CAF50; font-weight: bold;}
+        .container {background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);}
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("<div class='main-title'>Anish Karthic's Portfolio</div>", unsafe_allow_html=True)
+
+st.write("Hi, I am Anish Karthic from the Department of Artificial Intelligence and Data Science.")
+c1, c2, c3 = st.columns([1, 2, 1])
 with c2:
-    st.image("I.png",width=200,)
-st.write(''' I am Anish Karthic, a passionate BTech student specializing in Artificial Intelligence and Data Science.
-          Currently in my first year, I am fascinated by technology and its potential to solve real-world problems. 
-         I am particularly interested in developing innovative solutions that enhance efficiency and improve user experiences.
-          In addition to my studies, I’m eager to expand my knowledge through practical projects and collaborations within the tech community.''')
-if "section" not in st.session_state:
-    st.session_state.section = "Home"
+    st.image("I.png", width=200)
 
-# Button-based navigation
-col1, col2, col3 = st.columns(3)
-if col1.button("EDUCATION"):
-    st.session_state.section = "EDUCATION"
-if col2.button("CERTIFICATE"):
-    st.session_state.section = "CERTIFICATE"
-if col3.button("CONTACT"):
-    st.session_state.section = "Contact"
+st.write("""
+    I am a BTech student specializing in Artificial Intelligence and Data Science, currently in my first year. 
+    I am fascinated by technology's potential to solve real-world problems and am particularly interested in 
+    developing innovative solutions that enhance efficiency and improve user experiences. In addition to my studies, 
+    I’m expanding my knowledge through practical projects and collaborations within the tech community.
+""")
 
-# Display content based on the current section
-if st.session_state.section == "EDUCATION":
-    st.title("EDUCATION QUALIFICATION ")
-    st.header('''B.Tech Artificial intelligence and Data Science  ''')
-    st.header("I year")
+
+tab1, tab2, tab3 = st.tabs(["Education", "Certificates", "Contact"])
+
+with tab1:
+    st.markdown("<div class='section-header'>Education Qualification</div>", unsafe_allow_html=True)
+    st.write("**B.Tech in Artificial Intelligence and Data Science** - 1st Year")
     st.write('''
-            - **COLLAGE**:  [KGISL INSTUTION OF TECHNOLOGY](https://www.kgkite.ac.in/)
-            - **LOCATION**:  SARAVANAPATTI,COIMBATORE ''')
-    st.title("SKILLS")
+        - **College**: [KGISL Institute of Technology](https://www.kgkite.ac.in/)
+        - **Location**: Saravanampatti, Coimbatore
+    ''')
+    
+    st.markdown("<div class='section-header'>Skills</div>", unsafe_allow_html=True)
     st.write('''
-            - **PROGRAMMING LANGUAGES KNOWN** : PYTHON , C++ , HTML , CSS. 
-            - **FRAMEWORKS AND LIBRARIES** :DJANGO , STREAMLIT ,PANDAS (Currently Learning)
-            - **DATABASE** : SQLITE
-            - **TOOLS AND TECHNOLOGIES** : GIT , VISUAL STUDIO CODE 
-            - **SOFT SKILLS**: TEAMWORK ,PROBLEM SOLVING ,COMMUNICATION 
-                ''')
-    
-    
-elif st.session_state.section == "CERTIFICATE":
-    st.title("CERTIFICATES")
-    st.header("Here are some of my Certificates:")
-    st.write("- [Data Analysis Using Python - by  ibm](https://www.credly.com/badges/eaa605c9-2c93-42ae-8237-033bf5a394a0/linked_in_profile)")
+        - **Programming Languages**: Python, C++, HTML, CSS
+        - **Frameworks & Libraries**: Django, Streamlit, Pandas (Currently Learning)
+        - **Database**: SQLite
+        - **Tools & Technologies**: Git, Visual Studio Code
+        - **Soft Skills**: Teamwork, Problem Solving, Communication
+    ''')
+
+with tab2:
+    st.markdown("<div class='section-header'>Certificates</div>", unsafe_allow_html=True)
+    st.write("- [Data Analysis Using Python - by IBM](https://www.credly.com/badges/eaa605c9-2c93-42ae-8237-033bf5a394a0/linked_in_profile)")
     st.write("- [Excel for Beginners - by Great Learning](https://www.mygreatlearning.com/certificate/WEACJTQA)")
-elif st.session_state.section == "Contact":
-    st.title("Contact Me")
+
+with tab3:
+    st.markdown("<div class='section-header'>Contact Me</div>", unsafe_allow_html=True)
     st.write("Feel free to reach out!")
-    st.write("- GIT HUB :[ANISHKARTHIC](https://github.com/ANISHKARTHIC)")
-    st.write("- Email: anishkarthicvs@gmail.com")
-    st.write("- LinkedIn: [ANISH KARTHIC LinkedIn Profile](https://www.linkedin.com/in/anish-karthic-7583b7329)")
+    st.markdown("""
+        - **GitHub**: [Anish Karthic](https://github.com/ANISHKARTHIC)
+        - **Email**: anishkarthicvs@gmail.com
+        - **LinkedIn**: [Anish Karthic LinkedIn Profile](https://www.linkedin.com/in/anish-karthic-7583b7329)
+    """, unsafe_allow_html=True)
