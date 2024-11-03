@@ -54,8 +54,8 @@ with tab1:
         if st.button("Submit Guess") and not st.session_state.game_over:
             st.session_state.attempts += 1
             
-            if st.session_state.attempts>=3:
-                st.write("<div class='lost'>Sorry you lost!(attempted 15 times) </div>",  unsafe_allow_html=True)
+            if st.session_state.attempts>=10:
+                st.write("<div class='lost'>Sorry you lost!(attempted 10 times) </div>",  unsafe_allow_html=True)
                 st.header(f"The Machine guessed {st.session_state.guessing_num}")
                 st.session_state.game_over = False
             elif guess < st.session_state.guessing_num:
